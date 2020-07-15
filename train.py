@@ -11,11 +11,13 @@ from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau, Ear
 from keras.layers import Input, Lambda
 from keras.models import Model
 from keras.optimizers import Adam
-import tensorflow as tf
 from yolo3.model import preprocess_true_boxes, yolo_body, yolo_loss
 from yolo3.utils import get_random_data
-
-tf.python.control_flow_ops = tf
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+config = tf.ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.6
+set_session(tf.Session(config=config))
 
 
 class DataGenerator(keras.utils.Sequence):
@@ -139,7 +141,7 @@ def get_anchors(anchors_path):
 
 
 def create_model(input_shape, attribute_shape, anchors, num_seen,
-                 load_pretrained=False, weights_path='model_data/yolo_weights.h5'):
+                 load_pretrained=True, weights_path='model_data/yolo_weights.h5'):
     """create the training model"""
     K.clear_session()
     image_input = Input(shape=(None, None, 3))

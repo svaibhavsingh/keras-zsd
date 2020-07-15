@@ -13,7 +13,6 @@ from keras.regularizers import l2
 
 from yolo3.utils import compose
 
-tf.python.control_flow_ops = tf
 
 @wraps(Conv2D)
 def DarknetConv2D(*args, **kwargs):
