@@ -171,10 +171,10 @@ def create_model(input_shape, attribute_shape, anchors, num_seen,
 
 if __name__ == '__main__':
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ['CUDA_VISIBLE_DEVICES'] = '1,2'
+    os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3'
     config = K.tf.ConfigProto()
     # config.gpu_options.allow_growth = True
-    config.gpu_options.per_process_gpu_memory_fraction = 0.6
+    config.gpu_options.per_process_gpu_memory_fraction = 0.2
     session = K.tf.Session(config=config)
     K.set_session(session)
     _main()
