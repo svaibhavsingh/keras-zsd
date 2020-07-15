@@ -5,8 +5,9 @@ import xml.etree.ElementTree as ET
 # change your own spilt in voc_classes.txt
 with open('model_data/voc_classes.txt') as f:
     classes = f.readlines()
+classes = [c.strip() for c in classes]
 unseen_classes = classes[16:20]
-classes = [c.strip() for c in classes][:16]
+classes = classes[:16]
 
 
 def convert_annotation(image_id, list_file, test_file):
@@ -19,8 +20,10 @@ def convert_annotation(image_id, list_file, test_file):
     list_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
     for obj in root.iter('object'):
         cls = obj.find('name').text
-        if cls not in classes and cls in unseen_classes:
-            test_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
+        if cls not in classes:
+            if cls in unseen_classes:
+                test_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
+                break
             continue
         cls_id = classes.index(cls)
         xmlbox = obj.find('bndbox')
