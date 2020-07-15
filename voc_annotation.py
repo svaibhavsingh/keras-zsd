@@ -23,6 +23,7 @@ def convert_annotation(image_id, list_file, test_file):
         if cls not in classes:
             if cls in unseen_classes:
                 test_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
+                test_file.write('\n')
                 break
             continue
         cls_id = classes.index(cls)
