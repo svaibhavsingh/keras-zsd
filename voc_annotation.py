@@ -34,7 +34,7 @@ def convert_annotation(image_id, list_file, test_file):
 if __name__ == '__main__':
     xml_files = os.listdir('data/VOCdevkit/VOC2012/Annotations')
     train_file = open('data/train.txt', 'w')
-    test_file = open('dta/test.txt', 'w')
+    test_file = open('data/test.txt', 'w')
     for xml_file in xml_files:
         img_id = xml_file.split('.')[0]
         convert_annotation(img_id, train_file, test_file)
