@@ -171,5 +171,5 @@ def create_model(input_shape, attribute_shape, anchors, num_seen,
 
 
 if __name__ == '__main__':
-    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+    os.environ['CUDA_VISIBLE_DEVICES'] = '1'
     _main()
