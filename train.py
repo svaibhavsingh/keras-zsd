@@ -13,12 +13,11 @@ from keras.models import Model
 from keras.optimizers import Adam
 from yolo3.model import preprocess_true_boxes, yolo_body, yolo_loss
 from yolo3.utils import get_random_data
-import tensorflow as tf
-from keras.backend.tensorflow_backend import set_session
-config = tf.ConfigProto()
-config.gpu_options.per_process_gpu_memory_fraction = 0.6
-set_session(tf.Session(config=config))
 
+config = K.tf.ConfigProto()
+# config.gpu_options.allow_growth = True
+config.gpu_options.per_process_gpu_memory_fraction = 0.6
+session = K.tf.Session(config=config)
 
 class DataGenerator(keras.utils.Sequence):
     def __init__(self, data, attribute, anchors, input_shape, batch_size=8, shuffle=True):
