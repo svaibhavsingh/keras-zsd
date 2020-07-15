@@ -11,9 +11,11 @@ from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau, Ear
 from keras.layers import Input, Lambda
 from keras.models import Model
 from keras.optimizers import Adam
-
+import tensorflow as tf
 from yolo3.model import preprocess_true_boxes, yolo_body, yolo_loss
 from yolo3.utils import get_random_data
+
+tf.python.control_flow_ops = tf
 
 
 class DataGenerator(keras.utils.Sequence):
