@@ -12,7 +12,7 @@ total = 0
 x = np.zeros([20])
 embedding = np.load('model_data/glove_embedding.npy')
 
-with open('model_data/train.txt') as f:
+with open('data/train.txt') as f:
     lines = f.readlines()
 
 for line in lines:

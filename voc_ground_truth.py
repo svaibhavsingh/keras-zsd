@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 # change your own spilt in voc_classes.txt
 num_seen = 16
-with open('data/voc_classes.txt') as f:
+with open('model_data/voc_classes.txt') as f:
     classes = f.readlines()
 
 total_classes = [c.strip() for c in classes]
@@ -17,11 +17,11 @@ unseen_classes = total_classes[num_seen:]
 def convert_annotation(image_id):
     """Convert annotations from xml files to txt files as mAP program required."""
 
-    in_file = open('data/voc/VOCdevkit/VOC2012/Annotations/%s.xml' % image_id)
+    in_file = open('data/VOCdevkit/VOC2012/Annotations/%s.xml' % image_id)
     tree = ET.parse(in_file)
     root = tree.getroot()
 
-    with open('data/voc/ground-truth/test/%s.txt' % image_id, 'w') as f:
+    with open('data/ground-truth/test/%s.txt' % image_id, 'w') as f:
         for obj in root.iter('object'):
             cls = obj.find('name').text
             xmlbox = obj.find('bndbox')
