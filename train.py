@@ -137,7 +137,7 @@ def get_anchors(anchors_path):
 
 
 def create_model(input_shape, attribute_shape, anchors, num_seen,
-                 load_pretrained=True, weights_path='model_data/yolo_weights.h5'):
+                 load_pretrained=False, weights_path='model_data/yolo_weights.h5'):
     """create the training model"""
     K.clear_session()
     image_input = Input(shape=(None, None, 3))
