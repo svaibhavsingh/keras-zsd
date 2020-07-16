@@ -47,10 +47,10 @@ def get_box_info(file):
 unseen_classes = ['car', 'dog', 'sofa', 'train']
 result_matrix = np.zeros((4, 4), dtype='int32')
 
-prediction = os.listdir('data/predicted/test')
+prediction = os.listdir('data/predicted')
 
 for p in prediction:
-    pred_classes, pred_boxes = get_box_info(os.path.join('data/predicted/test', p))
+    pred_classes, pred_boxes = get_box_info(os.path.join('data/predicted', p))
     gt_classes, gt_boxes = get_box_info(os.path.join('data/ground-truth/test', p))
     if len(pred_classes) == 0 or len(gt_classes) == 0:
         continue
