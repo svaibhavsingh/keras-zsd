@@ -59,7 +59,7 @@ def _main():
     attribute_path = 'model_data/attributes.npy'
     log_dir = 'logs/voc/'
     anchors_path = 'model_data/yolo_anchors.txt'
-    weights_path = 'model_data/darknet53_weights.h5'
+    weights_path = 'model_data/yolo_weights.h5'
     anchors = get_anchors(anchors_path)
     num_seen = 16
 
