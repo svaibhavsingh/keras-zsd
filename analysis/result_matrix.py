@@ -36,7 +36,7 @@ def get_box_info(file):
         boxes = []
         for line in lines:
             box_info = line.strip().split(' ')
-            if box_info[0] not in classes:
+            if box_info[0] not in unseen_classes:
                 continue
             classes.append(unseen_classes.index(box_info[0]))
             for i in box_info[-4:]:
@@ -57,6 +57,7 @@ for p in prediction:
     if len(pred_classes) == 0 or len(gt_classes) == 0:
         continue
     ious = box_iou(pred_boxes, gt_boxes)
+    print(len(ious))
     for i in range(len(ious)):
         if ious[i].max() < 0.5:
             continue
