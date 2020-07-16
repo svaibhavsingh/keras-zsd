@@ -36,6 +36,8 @@ def get_box_info(file):
         boxes = []
         for line in lines:
             box_info = line.strip().split(' ')
+            if box_info[0] not in classes:
+                continue
             classes.append(unseen_classes.index(box_info[0]))
             for i in box_info[-4:]:
                 boxes.append(int(i))
