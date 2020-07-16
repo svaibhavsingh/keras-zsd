@@ -15,7 +15,7 @@ unseen_classes = ['car', 'dog', 'horse', 'sofa', 'train']
 
 class YOLO(object):
     def __init__(self):
-        self.weight_path = 'logs/voc/trained_weights_final.h5'
+        self.weight_path = 'logs/voc/trained_weights.h5'
         self.anchors_path = 'model_data/yolo_anchors.txt'
         self.attribute_path = 'model_data/attributes.npy'
         self.score = 0.4
