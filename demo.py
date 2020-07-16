@@ -139,7 +139,7 @@ def detect_img(yolo):
             continue
         else:
             r_image = yolo.detect_image(image)
-            r_image.show()
+            r_image.save("images/test.jpg")
     yolo.close_session()
 
 
