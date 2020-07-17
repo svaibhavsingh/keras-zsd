@@ -24,6 +24,8 @@ def convert_annotation(image_id):
     with open('data/ground-truth/test/%s.txt' % image_id, 'w') as f:
         for obj in root.iter('object'):
             cls = obj.find('name').text
+            if cls not in unseen_classes:
+                continue
             xmlbox = obj.find('bndbox')
             b = (int(xmlbox.find('xmin').text), int(xmlbox.find('ymin').text),
                  int(xmlbox.find('xmax').text), int(xmlbox.find('ymax').text))

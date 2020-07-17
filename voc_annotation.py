@@ -27,8 +27,7 @@ def convert_annotation(image_id, list_file, test_file):
     list_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
     for obj in root.iter('object'):
         cls = obj.find('name').text
-        if cls not in classes:
-            continue
+        assert cls in classes, 'while training class should be in seen'
         cls_id = classes.index(cls)
         xmlbox = obj.find('bndbox')
         # in the form (x1, y1, x2, y2)
