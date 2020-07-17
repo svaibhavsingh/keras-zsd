@@ -17,14 +17,17 @@ def convert_annotation(image_id, list_file, test_file):
     tree = ET.parse(in_file)
     root = tree.getroot()
 
+    for obj in root.iter('object'):
+        cls = obj.find('name').text
+        if cls in unseen_classes:
+            test_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
+            test_file.write('\n')
+            return
+
     list_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
     for obj in root.iter('object'):
         cls = obj.find('name').text
         if cls not in classes:
-            if cls in unseen_classes:
-                test_file.write('data/VOCdevkit/VOC2012/JPEGImages/%s.jpg' % image_id)
-                test_file.write('\n')
-                break
             continue
         cls_id = classes.index(cls)
         xmlbox = obj.find('bndbox')
