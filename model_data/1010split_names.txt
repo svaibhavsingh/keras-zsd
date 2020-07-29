@@ -8,3 +8,13 @@ dog
 person
 pottedplant
 tvmonitor
+aeroplane
+boat
+cat
+cow
+horse
+motorbike
+sheep
+car
+sofa
+train

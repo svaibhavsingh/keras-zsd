@@ -13,3 +13,8 @@ sheep
 sofa
 train
 tvmonitor
+bus
+cat
+chair
+diningtable
+motorbike
