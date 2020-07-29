@@ -13,7 +13,7 @@ from tqdm import tqdm
 from yolo3.model import yolo_body, yolo_eval
 from yolo3.utils import letterbox_image
 
-with open('model_data/voc_classes.txt') as f:
+with open('model_data/1505split_names.txt') as f:
     class_names = f.readlines()
 class_names = [c.strip() for c in class_names]
 
@@ -22,11 +22,11 @@ class YOLO(object):
     def __init__(self):
         self.weight_path = 'logs/voc/trained_weights.h5'
         self.anchors_path = 'model_data/yolo_anchors.txt'
-        self.attribute_path = 'model_data/attributes.npy'
+        self.attribute_path = 'model_data/1505attributes.npy'
         self.predict_dir = 'data/predicted/'
         self.score = 0.001
         self.iou = 0.5
-        self.num_seen = 16
+        self.num_seen = 15
         self.anchors = self._get_anchors()
         self.sess = K.get_session()
         self.model_image_size = (416, 416)  # fixed size or (None, None), hw

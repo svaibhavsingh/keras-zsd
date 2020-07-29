@@ -2,8 +2,8 @@ import os
 import xml.etree.ElementTree as ET
 
 
-# change your own spilt in voc_classes.txt
-with open('model_data/voc_classes.txt') as f:
+# change your own spilt in 1505split_names.txt
+with open('model_data/1505split_names.txt') as f:
     classes = f.readlines()
 classes = [c.strip() for c in classes]
 unseen_classes = classes[16:20]

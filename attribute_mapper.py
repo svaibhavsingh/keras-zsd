@@ -1,4 +1,6 @@
 import numpy as np
+
+
 def map_attributes():
     attribute_path = 'model_data/attributes.npy'
     new_classes_order = 'model_data/voc_classes.txt'
@@ -15,4 +17,6 @@ def map_attributes():
     attribute = np.load(attribute_path)[mappings, :]
     np.save(file_to_save, attribute)
     return
+
+
 map_attributes()

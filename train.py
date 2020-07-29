@@ -3,7 +3,6 @@ Train the YOLO model for your own dataset.
 """
 
 import os
-
 import keras
 import keras.backend as K
 import numpy as np
@@ -56,12 +55,12 @@ class DataGenerator(keras.utils.Sequence):
 
 def _main():
     annotation_path = 'data/train.txt'
-    attribute_path = 'model_data/attributes.npy'
+    attribute_path = 'model_data/1505attributes.npy'
     log_dir = 'logs/voc/'
     anchors_path = 'model_data/yolo_anchors.txt'
     weights_path = 'model_data/yolo_weights.h5'
     anchors = get_anchors(anchors_path)
-    num_seen = 16
+    num_seen = 15
 
     input_shape = (416, 416)  # multiple of 32, hw
     attribute_shape = (num_seen, 64)
