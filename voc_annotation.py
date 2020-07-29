@@ -6,8 +6,8 @@ import xml.etree.ElementTree as ET
 with open('model_data/1505split_names.txt') as f:
     classes = f.readlines()
 classes = [c.strip() for c in classes]
-unseen_classes = classes[16:20]
-classes = classes[:16]
+unseen_classes = classes[15:20]
+classes = classes[:15]
 
 
 def convert_annotation(image_id, list_file, test_file):

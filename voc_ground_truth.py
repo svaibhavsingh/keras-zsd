@@ -5,7 +5,7 @@ Generate ground truth file for each test image of VOC2012 dataset.
 import xml.etree.ElementTree as ET
 
 # change your own spilt in 1505split_names.txt
-num_seen = 16
+num_seen = 15
 with open('model_data/1505split_names.txt') as f:
     classes = f.readlines()
 
